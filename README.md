@@ -9,7 +9,7 @@ Campaign-first personal site for Hans Andersen — candidate for Utah County Aud
 | `index.html` | Campaign homepage — hero, why Hans, record highlights, life/books/accounting teasers, Ask Hans promo |
 | `platform.html` | Platform & political beliefs |
 | `record.html` | Orem City Council + watchdog record timeline (UTOPIA, pumpkin farmer, records requests, Prop 1, utility rates, SCERA) |
-| `life.html` | Life story: family of 11, eight sons, military, scouting, orchard, Hans & Melodee — written so it can grow into a legacy/memorial page |
+| `life.html` | Life story: family of 11, eight sons, military, scouting, orchard — written so it can grow into a legacy/memorial page |
 | `books.html` | Books he's helped write (placeholder cards — fill in titles/covers/links) |
 | `accounting.html` | The practice + backlinks to andersenaccounting.com and the tax Ask Hans |
 | `ask-hans.html` + `js/ask-hans.js` | Campaign-edition Ask Hans chat |
