@@ -392,6 +392,70 @@ ul.principles li::before {
   margin-top: 24px;
 }
 
+/* ---------- Contact form ---------- */
+.contact-form {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px;
+  margin-top: 30px;
+  box-shadow: 0 4px 18px rgba(22,38,63,.08);
+}
+.field { margin-bottom: 20px; }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: .9rem;
+  color: var(--navy);
+  margin-bottom: 7px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  font: inherit;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+  color: var(--ink);
+}
+.field textarea { resize: vertical; min-height: 150px; }
+.field input:focus,
+.field textarea:focus { outline: 2px solid var(--copper); border-color: transparent; }
+
+/* Honeypot. Kept off-screen rather than display:none — bots that skip hidden
+   fields still fill this one in, which is the whole point. */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.form-actions button { cursor: pointer; }
+.form-actions button:disabled { opacity: .5; cursor: default; }
+.form-status { font-size: .9rem; font-weight: 600; margin: 0; }
+.form-status.ok { color: #1f6b3a; }
+.form-status.err { color: #a3301f; }
+
+.contact-direct {
+  margin-top: 26px;
+  background: var(--paper);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  font-size: .92rem;
+  color: var(--ink-soft);
+}
+.contact-direct .email {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 1rem;
+  letter-spacing: .01em;
+}
+
 /* ---------- Placeholder notice ---------- */
 .todo-note {
   background: #fff8e6;
