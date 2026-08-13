@@ -6,7 +6,9 @@
 // Sends through Resend's REST API with plain fetch — no npm dependencies,
 // same approach as api/ask-hans.js.
 
-const FROM = 'Hans Andersen Campaign <campaign@hansandersen.org>';
+// Sending domain verified in Resend. Replies never come back here — reply_to
+// below points at the visitor, so Hans answers from his own inbox.
+const FROM = 'Hans Andersen Campaign <noreply@postitpal.com>';
 const TO = 'contact@hansandersen.org';
 
 const LIMITS = { name: 120, email: 200, message: 4000 };
