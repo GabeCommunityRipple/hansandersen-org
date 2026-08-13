@@ -404,6 +404,49 @@ ul.principles li::before {
   margin-top: 24px;
 }
 
+/* ---------- Video grid ---------- */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+.video-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(22,38,63,.05);
+  display: flex;
+  flex-direction: column;
+}
+/* Fixed 16:9 box so the grid stays even — Shorts letterbox inside it, which is
+   how YouTube serves them to a standard embed anyway. */
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-meta { padding: 16px 20px 20px; }
+.video-meta h3 { font-size: 1.02rem; line-height: 1.35; }
+.video-date { font-size: .82rem; color: var(--ink-soft); margin-top: 6px; }
+.video-status {
+  margin-top: 26px;
+  background: var(--paper);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  font-size: .92rem;
+  color: var(--ink-soft);
+}
+
 /* ---------- Contact form ---------- */
 .contact-form {
   background: var(--paper);
@@ -516,8 +559,17 @@ footer a:hover { color: #fff; }
 .page-hero p { color: #ccd5e3; max-width: 62ch; margin-top: 12px; font-size: 1.05rem; }
 
 /* ---------- Responsive ---------- */
+/* Between the mobile breakpoint and roughly 1000px there are more nav items
+   than comfortable room. Tighten them rather than letting the row wrap and
+   push the Ask Hans button under the brand. */
+@media (min-width: 861px) and (max-width: 1000px) {
+  nav.mainnav { gap: 2px; }
+  nav.mainnav a { padding: 8px 9px; font-size: .8rem; }
+}
+
 @media (max-width: 860px) {
   .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
   .photo-pair { grid-template-columns: 1fr; }
   /* Two portraits stay side by side even on narrow screens — stacking them
      makes each one huge for what is a 256px source. */
