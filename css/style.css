@@ -298,6 +298,13 @@ ul.principles li::before {
 }
 /* Full-width photo inside a band */
 .photo-wide { margin-top: 34px; }
+/* Book cover: capped at its native width so it stays sharp instead of being
+   stretched to fill the column, and centred in whatever space is left. */
+.book-cover {
+  max-width: 309px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
 /* Two photos side by side. Columns are weighted (not 1fr 1fr) so a square archival
    scan and a landscape photo land at roughly the same height; align-items:start
    keeps each at its true aspect ratio instead of stretching it. */
