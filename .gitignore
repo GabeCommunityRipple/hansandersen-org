@@ -1,2 +1,7 @@
 .DS_Store
 node_modules/
+
+# Full-resolution photo originals (~23MB). Kept locally as the master copies and
+# re-derived into images/*.jpg with sips; not committed so the repo and the
+# Vercel deploy stay small. Back these up somewhere off this machine.
+images/originals/

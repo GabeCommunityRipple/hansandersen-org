@@ -279,6 +279,26 @@ ul.principles li::before {
   min-height: 240px;
 }
 
+/* ---------- Real photos ---------- */
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(22,38,63,.14);
+}
+/* Full-width photo inside a band */
+.photo-wide { margin-top: 34px; }
+/* Two photos side by side. Columns are weighted (not 1fr 1fr) so a square archival
+   scan and a landscape photo land at roughly the same height; align-items:start
+   keeps each at its true aspect ratio instead of stretching it. */
+.photo-pair {
+  display: grid;
+  grid-template-columns: .68fr 1fr;
+  gap: 22px;
+  align-items: start;
+  margin-top: 28px;
+}
+
 /* ---------- Two-column feature ---------- */
 .feature { display: grid; grid-template-columns: 1.1fr .9fr; gap: 44px; align-items: center; margin-top: 34px; }
 .feature.rev { grid-template-columns: .9fr 1.1fr; }
@@ -422,6 +442,7 @@ footer a:hover { color: #fff; }
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+  .photo-pair { grid-template-columns: 1fr; }
   .feature, .feature.rev { grid-template-columns: 1fr; gap: 24px; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
   .nav-toggle { display: block; }

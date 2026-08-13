@@ -49,7 +49,11 @@ Built to grow into a life-story/legacy site after the election.
 
 - Photo placeholders are `.photo-ph` divs that name their target file
   (e.g. `images/orchard.jpg`) — when adding a real photo, replace the div with an
-  `<img>` using that filename and a meaningful `alt`.
+  `<img class="photo">` using that filename, `width`/`height`, `loading="lazy"`,
+  and a meaningful `alt`.
+- `images/` holds web-optimized JPEGs only (max 1600px wide, `sips -Z 1600`, never
+  upscaled). Full-resolution untouched originals live in `images/originals/` —
+  re-derive from there, don't re-compress the web copies.
 - Visible content TODOs use `<div class="todo-note">`; invisible ones use `<!-- TODO -->`.
 - Tone of site copy: plain-spoken, warm, confident; "statesman not politician";
   short paragraphs; no corporate jargon.
