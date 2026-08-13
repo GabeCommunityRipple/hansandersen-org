@@ -411,6 +411,27 @@ ul.principles li::before {
   margin-top: 24px;
 }
 
+/* ---------- Book contents list ---------- */
+.book-contents {
+  list-style: none;
+  margin-top: 12px;
+  max-width: 68ch;
+}
+.book-contents li {
+  position: relative;
+  padding: 5px 0 5px 20px;
+  font-size: .95rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.book-contents li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--copper);
+  font-style: normal;
+}
+
 /* ---------- Video grid ---------- */
 .video-grid {
   display: grid;

@@ -26,6 +26,27 @@ of Hans's "proper role of government" convictions.
 
 ---
 
+## The compilation: The Works of H. Verlan Andersen
+
+The family volume Hans helped compile. Buy link (clean, no tracking params):
+https://www.amazon.com/Works-H-Verlan-Andersen-ebook/dp/B0DR6CPJ24/
+
+**Contents — confirmed 13 August 2026 by the site owner.** Five books:
+
+1. Man-Made Law in a Changing World
+2. Many Are Called But Few Are Chosen
+3. The Great and Abominable Church of the Devil
+4. The Book of Mormon and the Constitution
+5. The Moral Basis of a Free Society
+
+Only books 2 and 3 are distilled below — the other three have not been read for
+this project, so nothing beyond their titles should be asserted about them.
+
+Still open: how Hans wants his own role on the compilation described
+(compiler / editor / "helped his family put it together").
+
+---
+
 ## Book 1: Many Are Called But Few Are Chosen (1967)
 
 ### Overview
