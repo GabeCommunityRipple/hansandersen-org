@@ -104,9 +104,19 @@ nav.mainnav a.nav-cta:hover { background: var(--copper-light); }
 }
 
 /* ---------- Hero ---------- */
+/* Homepage hero only. Interior pages use .page-hero and are unaffected.
+   Layer order, front to back: copper glow, navy overlay, photo. The overlay is
+   heaviest on the left, where the headline sits, and thins toward the right so
+   the sunset still reads. White text legibility beats showing off the photo. */
 .hero {
   background:
-    radial-gradient(1100px 500px at 85% -10%, rgba(176,98,42,.35), transparent 60%),
+    radial-gradient(1100px 500px at 85% -10%, rgba(176,98,42,.28), transparent 60%),
+    linear-gradient(100deg,
+      rgba(22,38,63,.95) 0%,
+      rgba(22,38,63,.92) 40%,
+      rgba(31,53,87,.82) 70%,
+      rgba(31,53,87,.72) 100%),
+    url("../images/hero-bg.jpg") center 55% / cover no-repeat,
     linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 70%, #2a4064 100%);
   color: #fff;
   padding: 84px 0 72px;
@@ -291,6 +301,8 @@ ul.principles li::before {
 /* Two photos side by side. Columns are weighted (not 1fr 1fr) so a square archival
    scan and a landscape photo land at roughly the same height; align-items:start
    keeps each at its true aspect ratio instead of stretching it. */
+/* Equal columns, for two photos of matching shape (e.g. a pair of portraits). */
+.photo-pair.even { grid-template-columns: 1fr 1fr; }
 .photo-pair {
   display: grid;
   grid-template-columns: .68fr 1fr;
@@ -507,6 +519,21 @@ footer a:hover { color: #fff; }
 @media (max-width: 860px) {
   .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
   .photo-pair { grid-template-columns: 1fr; }
+  /* Two portraits stay side by side even on narrow screens — stacking them
+     makes each one huge for what is a 256px source. */
+  .photo-pair.even { grid-template-columns: 1fr 1fr; gap: 14px; }
+  /* A narrow viewport crops the photo hard, so there is no room for the
+     left-to-right falloff. Bias toward the peak and deepen the overlay. */
+  .hero {
+    background:
+      radial-gradient(700px 380px at 85% -10%, rgba(176,98,42,.22), transparent 60%),
+      linear-gradient(165deg,
+        rgba(22,38,63,.90) 0%,
+        rgba(22,38,63,.86) 55%,
+        rgba(31,53,87,.78) 100%),
+      url("../images/hero-bg.jpg") 42% center / cover no-repeat,
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 70%, #2a4064 100%);
+  }
   .feature, .feature.rev { grid-template-columns: 1fr; gap: 24px; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
   .nav-toggle { display: block; }
