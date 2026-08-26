@@ -29,6 +29,12 @@ Built to grow into a life-story/legacy site after the election.
 
 ## Hard rules
 
+**Editorial north star:** Hans's primary goal is educating people on his principles of
+government — winning the election is secondary. When a choice trades electoral polish
+against stating his views plainly and authentically, authenticity wins. This does not
+loosen the rules below: facts stay verified, opponents stay undisparaged, and the site
+stays honest about what is Hans's own voice vs. content he's sharing.
+
 1. **Never invent facts about Hans.** Every claim on this site is sourced from his real
    record. If content is missing (dates, titles, photos), leave a clearly visible
    placeholder (`.todo-note` div or `<!-- TODO -->`) rather than making something up.
