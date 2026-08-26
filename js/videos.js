@@ -25,7 +25,9 @@ var CHANNEL = 'https://www.youtube.com/@vote4hans';
     status.hidden = false;
   }
 
-  function card(v) {
+  // showChannel: featured clips can come from other people's channels, so they
+  // carry a byline. The uploads grid is all Hans, so it does not need one.
+  function card(v, showChannel) {
     var card = document.createElement('div');
     card.className = 'video-card';
 
@@ -50,6 +52,13 @@ var CHANNEL = 'https://www.youtube.com/@vote4hans';
     h3.textContent = v.title;
     meta.appendChild(h3);
 
+    if (showChannel && v.channel) {
+      var by = document.createElement('p');
+      by.className = 'video-channel';
+      by.textContent = 'From ' + v.channel;
+      meta.appendChild(by);
+    }
+
     var date = formatDate(v.published);
     if (date) {
       var p = document.createElement('p');
@@ -63,8 +72,8 @@ var CHANNEL = 'https://www.youtube.com/@vote4hans';
     return card;
   }
 
-  function render(target, videos) {
-    videos.forEach(function (v) { target.appendChild(card(v)); });
+  function render(target, videos, showChannel) {
+    videos.forEach(function (v) { target.appendChild(card(v, showChannel)); });
   }
 
   fetch(ENDPOINT)
@@ -79,7 +88,7 @@ var CHANNEL = 'https://www.youtube.com/@vote4hans';
       // The playlist can be empty or its feed can be down while uploads are
       // fine: in that case the section simply stays hidden.
       if (featured.length > 0 && featuredGrid && featuredSection) {
-        render(featuredGrid, featured);
+        render(featuredGrid, featured, true);
         featuredSection.hidden = false;
       }
 
@@ -95,7 +104,7 @@ var CHANNEL = 'https://www.youtube.com/@vote4hans';
       }
 
       status.hidden = true;
-      render(grid, latest);
+      render(grid, latest, false);
     })
     .catch(function () {
       showMessage(

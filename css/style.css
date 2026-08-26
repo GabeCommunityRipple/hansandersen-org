@@ -464,6 +464,12 @@ ul.principles li::before {
 }
 .video-meta { padding: 16px 20px 20px; }
 .video-meta h3 { font-size: 1.02rem; line-height: 1.35; }
+.video-channel {
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--copper);
+  margin-top: 6px;
+}
 .video-date { font-size: .82rem; color: var(--ink-soft); margin-top: 6px; }
 .video-status {
   margin-top: 26px;
