@@ -1,12 +1,17 @@
-// Videos — Hans's YouTube channel feed (Vercel Serverless Function)
+// Videos — Hans's YouTube channel + featured playlist (Vercel Serverless Function)
 // Lives at /api/videos. No API key and no npm dependencies: YouTube publishes a
-// public Atom feed per channel, so this fetches and parses it with plain fetch
-// and regexes, the same dependency-free approach as the other functions here.
+// public Atom feed per channel and per playlist, so this fetches and parses them
+// with plain fetch and regexes, the same dependency-free approach as the other
+// functions here.
 //
-// Channel: https://www.youtube.com/@vote4hans
+// Channel:  https://www.youtube.com/@vote4hans
+// Playlist: https://youtube.com/playlist?list=PLRCTtxs2s4_s  ("Vote for Hans")
 
 const CHANNEL_ID = 'UCcUB0UQN9g_7EiWS-LCRGQg';
-const FEED = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+const PLAYLIST_ID = 'PLRCTtxs2s4_s';
+
+const CHANNEL_FEED = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+const PLAYLIST_FEED = 'https://www.youtube.com/feeds/videos.xml?playlist_id=' + PLAYLIST_ID;
 
 function decodeEntities(str) {
   return str
@@ -24,11 +29,12 @@ function tag(entry, name) {
   return m ? decodeEntities(m[1].trim()) : '';
 }
 
-// Atom entries arrive newest first; keep that order rather than re-sorting,
-// then sort by date anyway so a feed quirk cannot scramble the page.
-function parseFeed(xml) {
+// sortByDate: true for channel uploads, where newest-first is what people expect.
+// false for the playlist, where the feed arrives in the order Hans arranged it —
+// that curation is the whole point of a featured list, so it is left alone.
+function parseFeed(xml, sortByDate) {
   const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g) || [];
-  return entries
+  const videos = entries
     .map(function (entry) {
       return {
         id: tag(entry, 'yt:videoId'),
@@ -36,8 +42,29 @@ function parseFeed(xml) {
         published: tag(entry, 'published')
       };
     })
-    .filter(function (v) { return v.id && v.title; })
-    .sort(function (a, b) { return new Date(b.published) - new Date(a.published); });
+    .filter(function (v) { return v.id && v.title; });
+
+  return sortByDate
+    ? videos.sort(function (a, b) { return new Date(b.published) - new Date(a.published); })
+    : videos;
+}
+
+// Resolves to a video array, or to [] if this feed is unavailable. One feed
+// failing must not take the other down with it.
+async function loadFeed(url, sortByDate, label) {
+  try {
+    const upstream = await fetch(url, {
+      headers: { 'user-agent': 'hansandersen.org video list' }
+    });
+    if (!upstream.ok) {
+      console.error('YouTube ' + label + ' feed error:', upstream.status);
+      return null;
+    }
+    return parseFeed(await upstream.text(), sortByDate);
+  } catch (err) {
+    console.error('YouTube ' + label + ' feed fetch failed:', err);
+    return null;
+  }
 }
 
 export default async function handler(req, res) {
@@ -46,21 +73,28 @@ export default async function handler(req, res) {
   }
 
   try {
-    const upstream = await fetch(FEED, {
-      headers: { 'user-agent': 'hansandersen.org video list' }
-    });
+    const [featuredResult, latestResult] = await Promise.all([
+      loadFeed(PLAYLIST_FEED, false, 'playlist'),
+      loadFeed(CHANNEL_FEED, true, 'channel')
+    ]);
 
-    if (!upstream.ok) {
-      console.error('YouTube feed error:', upstream.status);
+    // Both feeds down means we have nothing to show: let the page fall back to
+    // its "watch on YouTube" message rather than rendering empty sections.
+    if (featuredResult === null && latestResult === null) {
       return res.status(502).json({ error: 'Upstream error' });
     }
 
-    const videos = parseFeed(await upstream.text());
+    const featured = featuredResult || [];
+    const latest = latestResult || [];
+
+    // A featured video is usually also a recent upload. Show it once, up top.
+    const featuredIds = new Set(featured.map(function (v) { return v.id; }));
+    const dedupedLatest = latest.filter(function (v) { return !featuredIds.has(v.id); });
 
     // Cached at the edge for an hour; serve the stale copy for a day after that
     // while it refreshes, so a YouTube hiccup never empties the page.
     res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');
-    return res.status(200).json(videos);
+    return res.status(200).json({ featured: featured, latest: dedupedLatest });
   } catch (err) {
     console.error('Function error:', err);
     return res.status(500).json({ error: 'Server error' });
