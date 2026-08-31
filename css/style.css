@@ -476,6 +476,29 @@ section.band.win .section-kicker { color: var(--gold); }
 }
 .win-note { margin-top: 8px; font-size: .86rem; color: #93a5bf; max-width: 64ch; }
 
+/* The two halves of the win: cut at the hearing, then rejected at the ballot. */
+.win-halves {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 30px;
+}
+.win-half {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+.win-half-tag {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--copper-light);
+  margin-bottom: 10px;
+}
+.win-half p { font-size: .94rem; color: #c6d0e0; }
+
 .win-question {
   margin-top: 28px;
   border-left: 3px solid var(--copper);
@@ -695,6 +718,7 @@ footer a:hover { color: #fff; }
   /* 15 segments in ~340px: tighten the gaps so they stay distinguishable. */
   .yearbar { gap: 3px; }
   .yb-seg { height: 20px; border-radius: 2px; }
+  .win-halves { grid-template-columns: 1fr; }
   .photo-pair { grid-template-columns: 1fr; }
   /* Two portraits stay side by side even on narrow screens — stacking them
      makes each one huge for what is a 256px source. */
