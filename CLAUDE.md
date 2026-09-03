@@ -41,10 +41,15 @@ stays honest about what is Hans's own voice vs. content he's sharing.
 2. **No mention of Melodee, Hans's ex-wife, his marriage, or divorce** — anywhere in
    pages, prompts, comments, or commit messages. The Ask Hans system prompt must keep
    its rule to politely decline such questions.
-3. **Party affiliation is deliberately unstated** until confirmed (Hans was not on the
-   UCRP convention list for auditor as of Feb 2026). Don't add a party.
-4. The footer "Paid for by [Committee Name — TODO]" line stays as a loud placeholder
-   until the real campaign-finance disclosure wording is provided.
+3. **Hans runs as a candidate of the Independent American Party** (confirmed by Hans,
+   13 August 2026 — this supersedes the earlier "affiliation deliberately unstated"
+   rule, and explains why he was not on the UCRP convention list). State the
+   affiliation accurately wherever a voter would look for it; do not editorialize
+   about the party, and do not describe the party's platform as though it were
+   Hans's. His positions are the ones sourced on this site.
+4. The footer campaign-finance disclosure reads exactly **"Paid for by Hans Andersen."**
+   (confirmed by Hans, 13 August 2026). It appears on all 9 pages — change it in all
+   of them or none.
 5. Ask Hans (campaign edition) answers only campaign/record/bio questions, never
    disparages opponents, routes tax questions to andersenaccounting.com/ask-hans,
    and never handles donations.

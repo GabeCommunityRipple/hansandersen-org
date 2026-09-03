@@ -669,6 +669,15 @@ section.band.win .section-kicker { color: var(--gold); }
 .todo-note strong { color: #5e4a10; }
 
 /* ---------- Footer ---------- */
+/* Party affiliation, stated plainly under his name on every page. */
+.foot-party {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: .85rem;
+  letter-spacing: .02em;
+  margin-bottom: 6px;
+}
+
 footer {
   background: var(--navy);
   color: #b9c3d4;
