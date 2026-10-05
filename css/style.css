@@ -737,6 +737,9 @@ section.band .vs-name h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom:
   color: var(--copper);
 }
 
+.vs-source { margin-top: 22px; font-size: .85rem; color: var(--ink-soft); max-width: 68ch; }
+.vs-source strong { color: var(--ink); }
+
 /* ---------- Placeholder notice ---------- */
 .todo-note {
   background: #fff8e6;
