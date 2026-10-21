@@ -53,8 +53,10 @@ stays honest about what is Hans's own voice vs. content he's sharing.
 5. Ask Hans (campaign edition) answers only campaign/record/bio questions, never
    disparages opponents, routes tax questions to andersenaccounting.com/ask-hans,
    and never handles donations.
-6. Keep the site dependency-free: no npm packages, no frameworks, no trackers.
-   Google Fonts CDN is the only external resource.
+6. Keep the site dependency-free: no npm packages, no frameworks, no trackers
+   except the Google Ads gtag (AW-18525867908), added October 2026 for campaign
+   ad conversion tracking. Google Fonts CDN and that tag are the only external
+   resources.
 
 ## Conventions
 
