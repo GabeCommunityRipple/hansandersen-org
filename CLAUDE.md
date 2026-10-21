@@ -25,7 +25,8 @@ Built to grow into a life-story/legacy site after the election.
 - `css/style.css` — ALL styling; palette variables at the top; edit here, no inline style sprawl
 - `js/site.js` — nav toggle + active-link highlight
 - Nav and footer are duplicated in every HTML page — **any nav/footer change must be
-  applied to all 7 pages identically.**
+  applied identically to every HTML page in the repo (find them all — don't
+  assume the count).**
 
 ## Hard rules
 
@@ -48,8 +49,8 @@ stays honest about what is Hans's own voice vs. content he's sharing.
    about the party, and do not describe the party's platform as though it were
    Hans's. His positions are the ones sourced on this site.
 4. The footer campaign-finance disclosure reads exactly **"Paid for by Hans Andersen."**
-   (confirmed by Hans, 13 August 2026). It appears on all 9 pages — change it in all
-   of them or none.
+   (confirmed by Hans, 13 August 2026). It appears on every HTML page in the repo (find
+   them all — don't assume the count) — change it in all of them or none.
 5. Ask Hans (campaign edition) answers only campaign/record/bio questions, never
    disparages opponents, routes tax questions to andersenaccounting.com/ask-hans,
    and never handles donations.
@@ -72,4 +73,5 @@ stays honest about what is Hans's own voice vs. content he's sharing.
   short paragraphs; no corporate jargon.
 - After any change, verify: open the affected pages locally (e.g.
   `python3 -m http.server`) and check desktop + mobile widths; confirm nav/footer
-  parity across all 7 pages if they were touched.
+  parity across every HTML page in the repo if they were touched (find them
+  all — don't assume the count).

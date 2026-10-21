@@ -8,6 +8,10 @@
 
 // Sending domain verified in Resend. Replies never come back here — reply_to
 // below points at the visitor, so Hans answers from his own inbox.
+// Deliberately sent from postitpal.com, an already-verified domain: the Resend
+// account has no free domain slot, so hansandersen.org isn't verified there.
+// If hansandersen.org is ever verified in Resend, change this to
+// campaign@hansandersen.org.
 const FROM = 'Hans Andersen Campaign <noreply@postitpal.com>';
 const TO = 'contact@hansandersen.org';
 
