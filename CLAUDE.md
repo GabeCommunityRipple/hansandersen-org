@@ -6,8 +6,8 @@ Built to grow into a life-story/legacy site after the election.
 ## Stack & deployment
 
 - Plain static HTML/CSS/JS — **no framework, no build step**. Keep it that way.
-- One serverless function: `api/ask-hans.js` (Vercel, ESM) — the "Ask Hans" AI chat.
-  Uses `ANTHROPIC_API_KEY` from Vercel env vars. Never put the key in client code.
+- Serverless functions in `api/` (Vercel, ESM) — listed under Structure. Keys
+  (`ANTHROPIC_API_KEY`, `RESEND_API_KEY`) come from Vercel env vars. Never put a key in client code.
 - Hosted on Vercel, repo on GitHub (GabeCommunityRipple/hansandersen-org),
   DNS on Cloudflare (records must be DNS-only / grey cloud, not proxied).
 - Related site: andersenaccounting.com (Hans's tax practice, separate Vercel project).
@@ -18,10 +18,17 @@ Built to grow into a life-story/legacy site after the election.
 - `index.html` — campaign homepage
 - `platform.html` — platform & beliefs
 - `record.html` — council + watchdog record timeline
+- `compare.html` — "The 2026 Choice": Tanner's own published words beside Hans's answer
 - `life.html` — life story (family, military, scouting, orchard)
 - `books.html` — books he's helped write (placeholders pending real titles)
+- `videos.html` + `js/videos.js` — his YouTube channel and featured playlist (loads from `/api/videos`)
 - `accounting.html` — the practice, backlinks to andersenaccounting.com
+- `contact.html` + `js/contact.js` — contact form (posts to `/api/contact`)
 - `ask-hans.html` + `js/ask-hans.js` — campaign chat UI (posts to `/api/ask-hans`)
+- `privacy.html` — plain-language privacy page; linked from the footer legal line, not the nav
+- `api/ask-hans.js` — Ask Hans serverless function; calls Anthropic with `ANTHROPIC_API_KEY`
+- `api/contact.js` — contact-form serverless function; emails the campaign inbox via Resend with `RESEND_API_KEY`
+- `api/videos.js` — reads the channel's and playlist's public YouTube feeds; no key needed
 - `css/style.css` — ALL styling; palette variables at the top; edit here, no inline style sprawl
 - `js/site.js` — nav toggle + active-link highlight
 - Nav and footer are duplicated in every HTML page — **any nav/footer change must be
