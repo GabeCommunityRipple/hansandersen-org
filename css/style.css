@@ -91,6 +91,13 @@ nav.mainnav a.nav-cta {
   color: #fff;
 }
 nav.mainnav a.nav-cta:hover { background: var(--copper-light); }
+/* The flagship issue: same button shape as Ask Hans, in the gold accent. */
+nav.mainnav a.nav-flag {
+  background: var(--gold);
+  color: var(--navy);
+}
+nav.mainnav a.nav-flag:hover { background: #dbb866; }
+nav.mainnav a.nav-flag.active { background: #dbb866; color: var(--navy); }
 
 .nav-toggle {
   display: none;
@@ -701,44 +708,128 @@ section.band .vs-name h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom:
   color: var(--copper);
   margin-bottom: 8px;
 }
-.vs-media {
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 100%);
-  border-radius: 12px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
+.vs-own {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--copper);
+  border-radius: 10px;
+  padding: 20px 22px;
 }
-.vs-media-play {
-  width: 58px; height: 58px;
-  border-radius: 50%;
-  background: var(--copper);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
-  padding-left: 4px;
-  margin-bottom: 14px;
+.vs-own h3 {
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 10px;
 }
-.vs-media-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; }
-.vs-media-sub { margin-top: 4px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
-.vs-media-frame { border-radius: 12px; overflow: hidden; }
-.vs-answer { margin-top: 10px; }
-.vs-answer p { font-family: var(--serif); font-size: 1.15rem; line-height: 1.6; color: var(--navy); }
-.vs-answer-cite {
+.vs-own p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.55; color: var(--navy); }
+.vs-own p + p { margin-top: 12px; }
+.vs-own cite {
   display: block;
-  margin-top: 14px;
+  margin-top: 12px;
   font-style: normal;
-  font-size: .85rem;
+  font-size: .8rem;
   letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--copper);
 }
+.vs-col .vs-source { margin-top: 0; }
+.vs-col .todo-note { margin: 0; }
+
+/* The decision band: two framed choices, Hans's emphasized. */
+section.band h2.decide-head { max-width: 44ch; }
+.decide { display: grid; grid-template-columns: 1fr 1.3fr; gap: 22px; margin-top: 30px; align-items: start; }
+.decide-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px 26px;
+}
+section.band.alt .decide-card { background: var(--cream); }
+.decide-card h3 { font-size: 1.2rem; margin-bottom: 14px; }
+.decide-label {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+.decide-card blockquote p { font-family: var(--serif); font-size: 1.05rem; line-height: 1.55; }
+.decide-card blockquote cite { display: block; margin-top: 10px; font-style: normal; font-size: .82rem; color: var(--ink-soft); }
+section.band.alt .decide-card-hans,
+.decide-card-hans {
+  background: var(--navy);
+  border: 2px solid var(--gold);
+  box-shadow: 0 8px 26px rgba(22,38,63,.22);
+  color: #fff;
+}
+.decide-card-hans .decide-label { color: var(--gold); }
+.decide-card-hans h3 { color: #fff; font-size: 1.35rem; }
+.decide-card-hans blockquote cite { color: var(--gold); letter-spacing: .1em; text-transform: uppercase; font-size: .78rem; }
+.decide-why { margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.18); }
+.decide-why-tag {
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.decide-why p { font-family: var(--serif); font-size: 1rem; line-height: 1.55; color: #e6ebf3; }
+section.band .decide-why p.decide-src { font-family: var(--sans); font-size: .8rem; color: #a9b6ca; margin-top: 10px; }
+.decide-src a { color: var(--gold); }
 
 .vs-source { margin-top: 22px; font-size: .85rem; color: var(--ink-soft); max-width: 68ch; }
 .vs-source strong { color: var(--ink); }
+
+/* ---------- Payroll page ---------- */
+.pay-stat { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 28px; }
+.pay-stat-num { font-family: var(--serif); font-weight: 700; font-size: clamp(2rem, 6vw, 3.2rem); color: var(--navy); line-height: 1; }
+.pay-stat-num.up { color: var(--copper); }
+.pay-stat-arrow { font-size: 1.8rem; color: var(--ink-soft); }
+.pay-stat-cap { width: 100%; font-size: .85rem; color: var(--ink-soft); }
+.tax-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; }
+.tax-step {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.tax-step-year { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
+.tax-step-val { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; color: #fff; margin-top: 6px; }
+.tax-step p { font-size: .86rem; color: #c6d0e0; margin-top: 6px; }
+.pay-table-ph {
+  margin-top: 26px;
+  border: 2px dashed #cbbfa8;
+  border-radius: 12px;
+  background: repeating-linear-gradient(45deg, #f3ece0, #f3ece0 12px, #f8f3ea 12px, #f8f3ea 24px);
+  padding: 34px 28px;
+  text-align: center;
+}
+.pay-table-ph .pay-cols { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.pay-table-ph .pay-cols span {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.pay-table-ph p { font-weight: 600; color: var(--navy); }
+.pointer-box {
+  margin-top: 30px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--navy-2);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+.pointer-box p { font-family: var(--serif); font-size: 1.1rem; color: var(--navy); }
+.pointer-box a.card-link { display: inline-block; margin-top: 10px; font-weight: 700; font-size: .92rem; }
 
 /* ---------- Privacy page ---------- */
 section.band .privacy h2 { font-size: 1.25rem; margin: 30px 0 8px; }
@@ -801,17 +892,31 @@ footer a:hover { color: #fff; }
 .page-hero p { color: #ccd5e3; max-width: 62ch; margin-top: 12px; font-size: 1.05rem; }
 
 /* ---------- Responsive ---------- */
-/* Between the mobile breakpoint and roughly 1100px there are more nav items
-   than comfortable room. Tighten them rather than letting the row wrap and
-   push the Ask Hans button under the brand. */
-@media (min-width: 861px) and (max-width: 1100px) {
+/* Ten nav links only just fit the 1080px column, so the desktop row never
+   wraps and tightens as the window narrows. Below 960px the nav switches to
+   the hamburger menu (see the max-width: 960px block) — earlier than the
+   860px layout breakpoint, because the row no longer fits legibly there. */
+@media (min-width: 961px) {
   .topbar .wrap { gap: 12px; }
   nav.mainnav { gap: 0; flex-wrap: nowrap; }
-  nav.mainnav a { padding: 8px 7px; font-size: .78rem; white-space: nowrap; }
+  nav.mainnav a { padding: 8px 9px; font-size: .84rem; white-space: nowrap; }
+  nav.mainnav a.nav-flag, nav.mainnav a.nav-cta { margin-left: 6px; }
 }
-@media (min-width: 861px) and (max-width: 940px) {
-  .brand { font-size: 1rem; }
-  .brand .brand-sub { font-size: .55rem; }
+@media (min-width: 961px) and (max-width: 1100px) {
+  nav.mainnav a { padding: 8px 6px; font-size: .76rem; }
+}
+
+@media (max-width: 960px) {
+  .nav-toggle { display: block; }
+  nav.mainnav {
+    display: none;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: var(--navy-2);
+    flex-direction: column;
+    padding: 12px;
+  }
+  nav.mainnav.open { display: flex; }
 }
 
 @media (max-width: 860px) {
@@ -822,6 +927,8 @@ footer a:hover { color: #fff; }
   .yb-seg { height: 20px; border-radius: 2px; }
   .win-halves { grid-template-columns: 1fr; }
   .vs { grid-template-columns: 1fr; gap: 48px; }
+  .decide { grid-template-columns: 1fr; }
+  .tax-steps { grid-template-columns: 1fr 1fr; }
   .photo-pair { grid-template-columns: 1fr; }
   /* Two portraits stay side by side even on narrow screens — stacking them
      makes each one huge for what is a 256px source. */
@@ -840,16 +947,6 @@ footer a:hover { color: #fff; }
   }
   .feature, .feature.rev { grid-template-columns: 1fr; gap: 24px; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
-  .nav-toggle { display: block; }
-  nav.mainnav {
-    display: none;
-    position: absolute;
-    top: 64px; left: 0; right: 0;
-    background: var(--navy-2);
-    flex-direction: column;
-    padding: 12px;
-  }
-  nav.mainnav.open { display: flex; }
   .pullquote { padding: 28px; }
   .msg { max-width: 92%; }
 }
