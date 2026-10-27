@@ -19,7 +19,7 @@ Built to grow into a life-story/legacy site after the election.
 - `platform.html` — platform & beliefs
 - `record.html` — council + watchdog record timeline
 - `compare.html` — "The 2026 Choice": Tanner's own published words beside Hans's answer
-- `payroll.html` — "Utah County Payroll", the flagship issue: commissioner pay, the tax math, payroll table (gold 🚀 nav link)
+- `payroll.html` + `js/payroll.js` — "Utah County Payroll", the flagship issue: commissioner pay, the tax math, sortable payroll table (gold 🚀 nav link)
 - `life.html` — life story (family, military, scouting, orchard)
 - `books.html` — books he's helped write (placeholders pending real titles)
 - `videos.html` + `js/videos.js` — his YouTube channel and featured playlist (loads from `/api/videos`)

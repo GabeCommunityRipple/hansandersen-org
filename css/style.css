@@ -801,25 +801,87 @@ section.band .decide-why p.decide-src { font-family: var(--sans); font-size: .8r
 .tax-step-year { font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
 .tax-step-val { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; color: #fff; margin-top: 6px; }
 .tax-step p { font-size: .86rem; color: #c6d0e0; margin-top: 6px; }
-.pay-table-ph {
-  margin-top: 26px;
-  border: 2px dashed #cbbfa8;
+.pay-intro p { font-family: var(--serif); font-size: 1.15rem; line-height: 1.6; color: var(--navy); }
+.pay-intro cite {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-size: .82rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+section.band.win h2.pay-stats-head { max-width: 30ch; }
+.pay-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); gap: 18px; margin-top: 30px; }
+.pay-stat-tile {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
   border-radius: 12px;
-  background: repeating-linear-gradient(45deg, #f3ece0, #f3ece0 12px, #f8f3ea 12px, #f8f3ea 24px);
-  padding: 34px 28px;
-  text-align: center;
+  padding: 20px 22px;
 }
-.pay-table-ph .pay-cols { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
-.pay-table-ph .pay-cols span {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 5px 10px;
-  font-size: .75rem;
+.pay-stat-big {
+  font-family: var(--serif);
   font-weight: 700;
-  color: var(--ink-soft);
+  font-size: clamp(2.4rem, 7vw, 3.4rem);
+  line-height: 1;
+  color: var(--copper-light);
 }
-.pay-table-ph p { font-weight: 600; color: var(--navy); }
+.pay-stat-tile p { margin-top: 10px; font-size: .92rem; color: #c6d0e0; }
+
+/* The payroll table scrolls inside its own box so the page never does. */
+.pt-hint { margin-top: 34px; font-size: .85rem; color: var(--ink-soft); }
+.pt-scroll {
+  margin-top: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.pt-scroll:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+.pay-table { width: 100%; min-width: 860px; border-collapse: collapse; font-size: .86rem; }
+.pay-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--navy);
+  text-align: left;
+  vertical-align: bottom;
+  padding: 0;
+}
+.pay-table th button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  cursor: pointer;
+}
+.pay-table th.num button { text-align: right; }
+.pay-table th button::after { content: " ↕"; color: rgba(255,255,255,.4); }
+.pay-table th[aria-sort="ascending"] button::after { content: " ↑"; color: var(--gold); }
+.pay-table th[aria-sort="descending"] button::after { content: " ↓"; color: var(--gold); }
+.pay-table th button:hover { background: var(--navy-2); }
+.pay-table th button:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+.pay-table td { padding: 8px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+.pay-table td.num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.pay-table tbody tr:nth-child(even) td { background: #fbf8f2; }
+.pay-table sup { color: var(--copper); font-weight: 700; margin-left: 1px; }
+.pt-dash { color: var(--ink-soft); }
+.pt-notes { margin-top: 18px; max-width: 76ch; font-size: .82rem; color: var(--ink-soft); }
+section.band .pt-notes p + p { margin-top: 8px; }
+.pt-notes sup { color: var(--copper); font-weight: 700; }
+.pt-notes h3 { font-size: .95rem; margin: 20px 0 8px; }
+.pt-notes strong { color: var(--ink); }
+
 .pointer-box {
   margin-top: 30px;
   background: var(--paper);
@@ -929,6 +991,7 @@ footer a:hover { color: #fff; }
   .vs { grid-template-columns: 1fr; gap: 48px; }
   .decide { grid-template-columns: 1fr; }
   .tax-steps { grid-template-columns: 1fr 1fr; }
+  .pay-stats { grid-template-columns: 1fr; }
   .photo-pair { grid-template-columns: 1fr; }
   /* Two portraits stay side by side even on narrow screens — stacking them
      makes each one huge for what is a 256px source. */
