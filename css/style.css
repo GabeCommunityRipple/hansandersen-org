@@ -736,7 +736,6 @@ section.band .vs-name h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-bottom:
   color: var(--copper);
 }
 .vs-col .vs-source { margin-top: 0; }
-.vs-col .todo-note { margin: 0; }
 
 /* The decision band: two framed choices, Hans's emphasized. */
 section.band h2.decide-head { max-width: 44ch; }
