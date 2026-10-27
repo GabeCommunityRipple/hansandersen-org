@@ -5,3 +5,10 @@ node_modules/
 # re-derived into images/*.jpg with sips; not committed so the repo and the
 # Vercel deploy stay small. Back these up somewhere off this machine.
 images/originals/
+
+# Raw payroll export as received. It lists three surnames in the first-name
+# column; the committed, cleaned copy is content/sources/payroll-top-earners-2025.csv.
+content/sources/247233c9-spread_sheet_first_name_pr_county.xlsx_-_Sheet1.csv
+
+# Scratch output folder; never part of the site.
+Claude outputs/
