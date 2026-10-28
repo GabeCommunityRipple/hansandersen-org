@@ -136,6 +136,15 @@ nav.mainnav a.nav-flag.active { background: #dbb866; color: var(--navy); }
   color: var(--gold);
   margin-bottom: 14px;
 }
+/* His name and credential, above the tagline. */
+.hero .hero-name {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  color: #fff;
+  letter-spacing: .02em;
+  margin: 0 0 10px;
+}
 .hero h1 {
   color: #fff;
   font-size: clamp(2.2rem, 5.5vw, 3.6rem);
